@@ -15,7 +15,7 @@ def find_marks_by_names(names):
             result[name] = None
     return result
 
-@app.route('/api', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_marks():
     names = request.args.getlist('name')
     if not names:
@@ -24,6 +24,3 @@ def get_marks():
     marks_result = find_marks_by_names(names)
     
     return jsonify(marks_result)
-
-if __name__ == '__main__':
-    app.run(debug=True)
